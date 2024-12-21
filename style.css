@@ -1,0 +1,322 @@
+/* Titulo */
+@font-face {
+    font-family: titulo;
+    src: url("newyork/NewYork\ PERSONAL\ USE.otf");
+}
+
+/* subtitulo */
+@font-face {
+    font-family: subtitulo;
+    src: url(newyork/NewYork\ PERSONAL\ USE.otf);
+}
+
+/* Preimeiro texto */
+@font-face {
+    font-family: texto1;
+    src: url(mont/Mont-ExtraLightDEMO.otf);
+}
+
+
+/* Texto */
+@font-face {
+    font-family: texto;
+    src: url(made_tommy/MADE\ TOMMY\ Light_PERSONAL\ USE.otf);
+}
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    height: 20%;
+    z-index: 1000;
+}
+
+header nav {
+    background-color: #ffffff;
+    width: 100vw;
+}
+
+header nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+    font-family: texto;
+}
+
+nav ul {
+    font-size: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+}
+
+nav ul li {
+    margin-top: 1%;
+}
+
+
+
+h1 {
+    text-align: center;
+    margin-top: 2%;
+    font-size: 3rem;
+    cursor: pointer;
+    font-family: titulo;
+    color: #2710f2;
+
+}
+
+nav ul li a:hover {
+    color: #2710f2;
+    /* Cor dourada */
+    transform: scale(1.1);
+    /* Aumenta o tamanho do link */
+}
+
+/* Adicionando um efeito de transição suave */
+nav ul li a {
+    transition: transform 0.3s ease, color 0.3s ease;
+
+}
+
+/* Fim do cabeçalho ___________________________________________________________________________________________________ */
+
+#sobre {
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.container1 {
+    border: #000000 solid 3px;
+    border-radius: 7px;
+    background-color: #ffffffe8;
+    margin: 10% 15% 0 15%;
+    padding: 0 5% 0 5%; 
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+#sobre h2 {
+    font-family: subtitulo;
+    font-size: 3rem;
+    color: #2710f2;
+    margin-bottom: 1.5%;
+}
+
+#sobre p {
+    font-family: texto1;
+    font-size: 1.2rem;
+    color: #000000;
+}
+
+/* Imagem da primeira seção _____________________________________________________________________________________________ */
+
+@property --gap {
+    syntax: '<length>';
+    /* Define o tipo de valor que pode ser atribuído à variável --gap (no caso, um valor de comprimento como px, em, etc.) */
+    inherits: true;
+    /* Faz com que a variável herde o valor do elemento pai, se disponível */
+    initial-value: 0;
+    /* Define o valor inicial de --gap como 0 */
+}
+
+@property --angle {
+    syntax: '<angle>';
+    /* Define o tipo de valor para a variável --angle (um valor de ângulo como deg, rad, etc.) */
+    inherits: true;
+    /* Permite que o valor da variável seja herdado do elemento pai */
+    initial-value: 0deg;
+    /* O valor inicial de --angle é 0 graus */
+}
+
+.imagem img {
+    --border: 15px;
+    /* Define uma variável customizada --border com valor 15px */
+    --gap: 12px;
+    /* Define uma variável customizada --gap com valor 12px */
+    --color: #FA6900;
+    /* Define uma variável customizada --color com valor #FA6900 (cor laranja) */
+
+    width: 200px;
+    /* Define a largura da imagem como 200px */
+    aspect-ratio: 1;
+    /* Define a razão de aspecto como 1, ou seja, a altura será igual à largura, fazendo a imagem ficar quadrada */
+    box-sizing: border-box;
+    /* Inclui a largura da borda e o preenchimento no cálculo do tamanho total da caixa */
+    border-radius: 50%;
+    /* Torna a imagem circular (bordas arredondadas com 50% de raio) */
+    margin: 20px;
+    /* Adiciona uma margem de 20px ao redor da imagem */
+    cursor: pointer;
+    /* Altera o cursor para um ponteiro (como uma mãozinha) ao passar sobre a imagem */
+    padding: calc(var(--border) + var(--gap));
+    /* Define o preenchimento (padding) da imagem como o valor da borda mais o valor do gap (15px + 12px = 27px) */
+
+    --angle: 90deg;
+    /* Define a variável --angle com valor 90deg */
+    background:
+        radial-gradient(farthest-side, var(--color) 97%, #0000 101%) 85.35% 85.35%,
+        /* Define um gradiente radial com a cor laranja */
+        conic-gradient(from calc(180deg - var(--angle)/2), #0000 var(--angle), var(--color) 0),
+        /* Define um gradiente cônico com base no valor de --angle (90deg) */
+        radial-gradient(farthest-side, var(--color) 97%, #0000 101%) 14.65% 85.35%;
+    /* Outro gradiente radial semelhante ao primeiro, mas em uma posição diferente */
+    background-size: var(--border) var(--border), auto;
+    /* Define o tamanho dos gradientes: o primeiro com o tamanho da borda e o segundo automaticamente */
+    background-repeat: no-repeat;
+    /* Garante que o fundo não se repita */
+
+    /* Máscara (para criar efeitos de "recorte" com base em gradientes) */
+    -webkit-mask:
+        radial-gradient(farthest-side,
+            #000 calc(99% - calc(var(--border) + var(--gap))),
+            /* Define o limite superior da máscara */
+            #0000 calc(100% - calc(var(--border) + var(--gap))),
+            /* Define a transição para transparente */
+            #000 calc(99% - var(--border)),
+            /* Define a borda da máscara */
+            #000 calc(100% - var(--border)));
+    /* Limita a área visível da máscara */
+    mask:
+        radial-gradient(farthest-side,
+            #000 calc(99% - calc(var(--border) + var(--gap))),
+            /* Define a máscara para o lado mais externo da imagem */
+            #0000 calc(100% - calc(var(--border) + var(--gap))),
+            /* Transparente após o valor do gap e border */
+            #000 calc(99% - var(--border)),
+            /* Define uma borda opaca para o efeito */
+            #000 calc(100% - var(--border)));
+    /* Limite final da máscara */
+
+    transition: --angle .4s, --gap .4s;
+    /* Define uma transição suave para as variáveis --angle e --gap em 0.4 segundos */
+}
+
+.imagem img:hover {
+    --angle: 0deg;
+    /* Quando o mouse passar sobre a imagem, define o ângulo como 0deg */
+    --gap: 5px;
+    /* Reduz o gap para 5px quando o mouse passa sobre a imagem */
+}
+
+/* _____________________________________________________________________________________________________________________ */
+
+#habilidade {
+    display: flex; /* Usamos flexbox para alinhar os elementos lado a lado */
+    justify-content: space-between; /* Espaça as duas áreas de forma equilibrada */
+    height: 80vh; /* Define a altura da seção para ocupar a altura total da tela */
+}
+
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw; /* Garante que a largura total ocupe a tela inteira */
+    height: 70vh;
+    margin: 5% 5% 0 5%;
+    background-color: #dcdada;
+    border-radius: 8px;
+}
+
+.skill-categories {
+    display: flex;
+    flex-direction: column; /* Organiza as skill-categories em coluna */
+    flex: 1; /* Faz com que a área de habilidades ocupe metade da largura */
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.skill-category h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: subtitulo;
+    letter-spacing: 3px;
+}
+
+.skill-category ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skill-category ul li {
+    margin: 5px 0;
+    font-size: 1rem;
+    font-family: texto;
+}
+
+.imagem2 {
+    flex: 1; /* Faz com que a imagem ocupe a outra metade da tela */
+    background-image: url('PUCRS.jpeg'); /* Substitua pelo caminho da sua imagem */
+    background-attachment: fixed; /* Efeito Parallax */
+    background-position: center;
+    background-size: cover; /* Garante que a imagem cubra toda a área da div */
+    background-repeat: no-repeat;
+    height: 100%; /* A altura da imagem é 100% da altura da seção */
+    border-radius: 0px 8px 8px 0px;
+}
+
+#divisao {  
+    margin-top: 40px;
+    padding: 20px;
+    background: #ffffff;
+}
+
+#projeto{
+    height: 80vh;
+    display: flex;
+}
+
+.conatiner3{
+    display: inline-block;
+    text-align:left;
+    align-items:center;
+    color: #ffffff;
+    margin-left: 3%;
+}
+
+.conatiner3 h2 {
+    font-family: subtitulo;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.projeto{
+    background-color: white;
+    margin: 2% 0 5% 0;
+    color: #000;
+    height: 15vh;
+    border-radius: 8px;
+    padding: 1%;
+    text-align: center;
+}
